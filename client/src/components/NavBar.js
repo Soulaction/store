@@ -22,7 +22,6 @@ const NavBar = observer(() => {
         <Navbar bg="dark" variant="dark">
             <Container>
                 <NavLink style={{ color: "white" }} to={SHOP_ROUTE}>Магазин</NavLink>
-                <NavLink style={{ color: "white" }} to={STORE_KEEPER_ROUTE}>Раб панель</NavLink>
                 {user.isAuth ?
                     user.user.role == 'ADMIN' ?
                         <Nav className="ml-auto" style={{ color: "white" }}>
@@ -36,10 +35,14 @@ const NavBar = observer(() => {
                             <Button className="me-2" variant={"outline-light"} onClick={() => history.push(ADMIN_ROUTE)}>Админн панель</Button>
                             <Button className="ml-2" variant={"outline-light"} onClick={() => logOut()}>Выйти</Button>
                         </Nav>
-                        :
-                        <Nav className="ml-auto" style={{ color: "white" }}>
-                            <Button className="ml-2" variant={"outline-light"} onClick={() => logOut()}>Выйти</Button>
-                        </Nav>
+                        : user.user.role == 'STOREKEEPER' ?
+                            <Nav className="ml-auto" style={{ color: "white" }}>
+                                <Button className="me-2" variant={"outline-light"} onClick={() => history.push(STORE_KEEPER_ROUTE)}>Рабочая панель</Button>
+                                <Button className="ml-2" variant={"outline-light"} onClick={() => logOut()}>Выйти</Button>
+                            </Nav>
+                            : <Nav className="ml-auto" style={{ color: "white" }}>
+                                <Button className="ml-2" variant={"outline-light"} onClick={() => logOut()}>Выйти</Button>
+                            </Nav>
                     :
                     <Nav className="ml-auto" style={{ color: "white" }}>
                         <Button variant="outline-light" onClick={() => history.push(LOGIN_ROUTE)}>Авторизация</Button>
