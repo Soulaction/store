@@ -1,12 +1,30 @@
 import { observer } from "mobx-react-lite";
-import { useContext, useEffect, useState } from "react";
-import { Form, Modal, Button, Dropdown, Row, Col } from "react-bootstrap";
-import { createDevice, fetchBrands, fetchTypes } from "../../http/deviceAPI";
+import { useContext, useState } from "react";
+import { Form, Modal, Button, Dropdown } from "react-bootstrap";
+import { registrationAdmin } from "../../http/userAPI";
 import { Context } from "../../index"
 
 const CreateUser = observer(({ show, onHide }) => {
-    
+
     const user = useContext(Context)
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [type, setType] = useState();
+
+    const selectType = (type) => {
+
+        switch (type) {
+            case 'ADMIN':
+                return 'Администратор';
+            case 'USER':
+                return 'Пользователь';
+            case 'STOREKEEPER':
+                return 'Кладовщик';
+        }
+    }
+    const addUser = () => {
+        registrationAdmin(email, password, type).then(data => onHide())
+    }
 
     return (
         <Modal
@@ -22,25 +40,31 @@ const CreateUser = observer(({ show, onHide }) => {
             </Modal.Header>
             <Modal.Body>
                 <Form>
+                    <Form.Control
+                        onChange={e => setEmail(e.target.value)}
+                        className="mt-3"
+                        placeholder="Введите логин"
+                    />
+                    <Form.Control
+                        onChange={e => setPassword(e.target.value)}
+                        className="mt-3"
+                        placeholder="Введите пароль"
+                        type="password"
+                    />
                     <Dropdown className="mb-2 mt-2">
-                        <Dropdown.Toggle>{ "Выберите тип"}</Dropdown.Toggle>
+                        <Dropdown.Toggle>{selectType(type) || "Выберите тип"}</Dropdown.Toggle>
                         <Dropdown.Menu>
-                            {user.users.map(el =>
-                                <Dropdown.Item onClick={() => user.setUsers(el)} key={el.id}>{el.role}</Dropdown.Item>
-                            )}
+                            <Dropdown.Item onClick={() => setType('ADMIN')}>Администратор</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setType('USER')}>Пользователь</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setType('STOREKEEPER')}>Кладовщик</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
-                    <Form.Control
-                        // value={price}
-                        // onChange={e=> setPrice(Number(e.target.value))}
-                        className="mt-3"
-                        placeholder="Введите стоимость устройства"
-                    />
+
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-success">Добавить</Button>
-                <Button variant="outline-danger" >Закрыть</Button>
+                <Button variant="outline-success" onClick = {addUser}>Добавить</Button>
+                <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
             </Modal.Footer>
         </Modal>
     )

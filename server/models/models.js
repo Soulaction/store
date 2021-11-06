@@ -65,11 +65,20 @@ const TypeBrand = sequelize.define('type_brend',{
     id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true}
 })
 
+const Order = sequelize.define('order', {
+    id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
+    statusOrder: {type: Sequelize.STRING, allowNull: false, defaultValue: 'Ожидание формирования'},
+    statusPayment: {type: Sequelize.STRING, allowNull: false},
+})
+
 User.hasOne(Basket)
 Basket.belongsTo(User)
 
 User.hasMany(Rating)
 Rating.belongsTo(User)
+
+User.hasMany(Order)
+Order.belongsTo(User)
 
 Basket.hasMany(BasketDevice)
 BasketDevice.belongsTo(Basket)
@@ -82,6 +91,9 @@ Device.belongsTo(Brand)
 
 Device.hasMany(BasketDevice)
 BasketDevice.belongsTo(Device)
+
+Device.hasMany(Order)
+Order.belongsTo(Device)
 
 Device.hasMany(Rating)
 Rating.belongsTo(Device)
@@ -103,5 +115,6 @@ module.exports = {
     TypeBrand,
     Device,
     DeviceInfo,
-    Rating
+    Rating,
+    Order
 }

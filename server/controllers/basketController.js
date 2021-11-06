@@ -1,4 +1,4 @@
-const { BasketDevice, Device } = require("../models/models")
+const { BasketDevice, Device, Order } = require("../models/models")
 
 class BasketController {
 
@@ -22,6 +22,15 @@ class BasketController {
         )
         return res.json(basketDevice)
     }
+
+    async order (req, res) {
+        const {userId, deviceId, payment} = req.body;
+        console.log(payment)
+        const status = payment === undefined ? 'Не оплачено' : 'Оплачено'
+        const order = await Order.create({status, userId, deviceId})
+        return res.json(order)
+    }
+
 }
 
 module.exports = new BasketController()

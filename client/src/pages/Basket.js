@@ -8,7 +8,7 @@ import BasketItem from "../components/BasketItem";
 const Basket = observer(() => {
     const { basket } = useContext(Context)
     const { user } = useContext(Context)
-    console.log(basket.products)
+
     useEffect(() => {
         fetchProduct(user.user.id).then(data => basket.setProducts(data))
 
