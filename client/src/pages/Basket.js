@@ -17,7 +17,7 @@ const Basket = observer(() => {
         <Container>
             <Row className="mt-3">
                 {basket.products.map(el => 
-                <BasketItem key={el.id} idD={el.id} devices={el.device}/>)}
+                <BasketItem key={el.id} idDB={el.id} devices={el.device}/>)}
             </Row>
         </Container>
     )

@@ -28,7 +28,7 @@ const Auth = observer(() => {
             user.setIsAuth(true)
             history.push(SHOP_ROUTE)
         } catch (e) {
-            alert(e.date.message)
+            alert(e.response.data.message)
         }
     }
 
@@ -55,11 +55,11 @@ const Auth = observer(() => {
                     />
                     <Row className="d-flex justify-content-between mt-3 pl-3 pr-3">
                         {isLogin ?
-                            <div>
+                            <div style={{marginBottom: '0.5em'}}>
                                 <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйтесь</NavLink>
                             </div>
                             :
-                            <div>
+                            <div style={{marginBottom: '0.5em'}}>
                                 <NavLink to={LOGIN_ROUTE}>Войдите</NavLink>
                             </div>
                         }

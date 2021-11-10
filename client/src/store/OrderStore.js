@@ -13,4 +13,28 @@ export default class OrderStore {
     get orders(){
         return this._orders
     }
+
+    setPaymantStatus(paymantStatus){
+        this._paymantStatus = paymantStatus
+    }
+
+    get paymantStatus(){
+        return this._paymantStatus
+    }
+
+    setOrderStatus(orderStatus){
+        this._orderStatus = orderStatus
+    }
+
+    get orderStatus(){
+        return this._orderStatus
+    }
+
+    setCheckOrder(checkOrder){
+        this._checkOrder = checkOrder
+    }
+
+    get ordercheckOrder(){
+        return this._checkOrder
+    }
 }

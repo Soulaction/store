@@ -83,6 +83,9 @@ Order.belongsTo(User)
 Basket.hasMany(BasketDevice)
 BasketDevice.belongsTo(Basket)
 
+BasketDevice.hasMany(Order)
+Order.belongsTo(BasketDevice)
+
 Type.hasMany(Device)
 Device.belongsTo(Type)
 

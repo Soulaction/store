@@ -6,8 +6,9 @@ import { fetchOrders, fetchSendOrders, fetchPaymantOrders, fetchOneOrders } from
 import OrderItem from '../components/OrderItem'
 import { useHistory } from 'react-router';
 import { STORE_KEEPER_ROUTE } from '../utils/consts';
+import { observer } from 'mobx-react-lite'
 
-const Keeper = () => {
+const Keeper = observer (() => {
 
     const { order } = useContext(Context)
     const history = useHistory()
@@ -81,6 +82,6 @@ const Keeper = () => {
             </Row>
         </Container>
     )
-}
+})
 
 export default Keeper;

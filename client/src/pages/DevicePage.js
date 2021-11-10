@@ -1,19 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { Card, Col, Container, Image, Row, Button } from "react-bootstrap";
 import bigStar from '../image/star.png'
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { fetchOneDevice } from "../http/deviceAPI";
-import {Context} from "../index";
+import { Context } from "../index";
 import { createProduct } from "../http/basketApi";
 
 
 const DevicePage = () => {
-    const {user} = useContext(Context)
-    const [device, setDevice] = useState({info:[]})
-    const {id} = useParams()
-    useEffect(()=>{
-        fetchOneDevice(id).then(data=> setDevice(data))
-    },[])
+    const { user } = useContext(Context)
+    const [device, setDevice] = useState({ info: [] })
+    const { id } = useParams()
+    useEffect(() => {
+        fetchOneDevice(id).then(data => setDevice(data))
+    }, [])
 
 
     return (
@@ -28,15 +28,18 @@ const DevicePage = () => {
                     >
                         <h2>{device.name}</h2>
                         <h3>{device.price} руб</h3>
-                        <Button variant={"outline-dark"}
-                                onClick={() => createProduct({ basketId: user.user.id, deviceId: device.id })}
-                        >Добавить в корзину</Button>
+                        {user.isAuth ? <Button variant={"outline-dark"}
+                            onClick={() => createProduct({ basketId: user.user.id, deviceId: device.id })}
+                        >Добавить в корзину</Button>:
+                        <div style={{textAlign:'center', fontSize: "20px"}}>Зарегестрируйтесь, либо войдите, чтобы купить</div>
+                    }
+
                     </Card>
                 </Col>
             </Row>
             <Row>
                 <h1>Характеристики</h1>
-                {device.info.map((info, index) => 
+                {device.info.map((info, index) =>
                     <Row key={info.id}>
                         {info.title}: {info.description}
                     </Row>
