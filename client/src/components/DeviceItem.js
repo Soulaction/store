@@ -12,8 +12,12 @@ const DeviceItem = observer(({devices}) => {
     const history = useHistory()
     const { device } = useContext(Context)
     const brand = device.brands.filter((brand) => brand.id == devices.brandId)
+    
     return (
-        <Col md={3} onClick={()=>history.push(DEVICE_ROUTE + '/' + devices.id)}>
+        <Col md={3} onClick={()=>{
+            history.push(DEVICE_ROUTE + '/' + devices.id);
+            localStorage.setItem('brand', brand[0].name);
+        }}>
             <Card
             style={{wight: 150, cursor: 'pointer'}} border={"light"}
             >

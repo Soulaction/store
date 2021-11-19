@@ -13,6 +13,7 @@ const Basket = observer(() => {
         fetchProduct(user.user.id).then(data => basket.setProducts(data))
 
     }, [])
+    console.log(basket.products)
     return (
         <Container>
             <Row className="mt-3">

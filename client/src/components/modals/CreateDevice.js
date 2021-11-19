@@ -7,7 +7,7 @@ import { Context } from "../../index"
 const CreateDevice = observer(({ show, onHide }) => {
     const { device } = useContext(Context)
     const [name, setName] = useState('')
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState()
     const [file, setFile] = useState(null)
     const [info, setInfo] = useState([])
 
@@ -28,6 +28,7 @@ const CreateDevice = observer(({ show, onHide }) => {
         console.log({...info, [key]: value})
         setInfo(info.map(i => i.number === number ? {...i, [key]: value} : i))
     }
+    
 
     const selectedFile = e => {
         setFile(e.target.files[0])

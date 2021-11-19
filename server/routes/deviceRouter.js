@@ -7,5 +7,6 @@ router.post('/add', deviceController.addBasket)
 router.get('/', deviceController.getAll)
 router.post('/', deviceController.create)
 router.get('/:id', deviceController.getOne)
+router.delete('/:id', deviceController.deleteDevice)
 
 module.exports = router

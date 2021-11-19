@@ -16,10 +16,11 @@ class DeviceController {
 
             if (info) {
                 info = JSON.parse(info)
+                console.log("Date " + info)
                 info.forEach(i =>
                     DeviceInfo.create({
                         title: i.title,
-                        description: i.description,
+                        discription: i.description,
                         deviceId: device.id
                     })
                 )
@@ -70,6 +71,17 @@ class DeviceController {
         const { basketId, deviceId } = req.body
         const basketDevice = await BasketDevice.create({ basketId, deviceId })
         return res.json(basketDevice)
+    }
+
+    async deleteDevice (req, res) {
+        const { id } = req.params
+        console.log(id)
+        const device = await Device.destroy(
+            {
+                where: {id}
+            }
+        )
+        return res.json(device)
     }
 }
 
