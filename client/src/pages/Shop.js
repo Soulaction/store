@@ -33,7 +33,7 @@ const Shop = observer(() => {
         <Container>
             <Row>
                 <Col md={3}>
-                    <TypeBar />
+                    <TypeBar className={"mt-2"} />
                 </Col>
 
                 <Col md={9}>

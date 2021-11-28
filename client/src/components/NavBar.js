@@ -32,7 +32,7 @@ const NavBar = observer(() => {
                             }}
                                 onClick={() => history.push(BASKET_ROUTE + '/' + user.user.id)}>
                             </button>
-                            <Button className="me-2" variant={"outline-light"} onClick={() => history.push(ADMIN_ROUTE)}>Админн панель</Button>
+                            <Button className="me-2" variant={"outline-light"} onClick={() => history.push(ADMIN_ROUTE)}>Админ панель</Button>
                             <Button className="ml-2" variant={"outline-light"} onClick={() => logOut()}>Выйти</Button>
                         </Nav>
                         : user.user.role === 'STOREKEEPER' ?

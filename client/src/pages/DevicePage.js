@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { Card, Col, Container, Image, Row, Button } from "react-bootstrap";
-import bigStar from '../image/star.png'
 import { useParams } from 'react-router-dom'
 import { fetchOneDevice } from "../http/deviceAPI";
 import { Context } from "../index";
@@ -9,21 +8,13 @@ import { observer } from "mobx-react-lite";
 
 
 const DevicePage = observer(() => {
-    const { user, device } = useContext(Context)
+    const { user } = useContext(Context)
     const [deviceNew, setDeviceNew] = useState({ info: [] })
     const { id } = useParams()
     
     useEffect(() => {;
         fetchOneDevice(id).then(data => setDeviceNew(data) )
     }, [])
-    //     useEffect(() => {
-    //     fetch("http://localhost:5000/api/device/" + id)
-    //     .then(response => response.json() )
-    //     .then(data => setDeviceNew(data))
-    // }, [])
-
-    console.log(deviceNew)
-    const brand = device.brands.filter((brand) => brand.id == deviceNew.brandId)
 
     return (
         <Container>

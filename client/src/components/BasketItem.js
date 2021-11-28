@@ -20,7 +20,6 @@ const BasketItem = observer((props) => {
     const { device } = useContext(Context)
     const { user } = useContext(Context)
     const { basket } = useContext(Context)
-    const { order } = useContext(Context)
 
     const brand = device.brands.filter((brand) => brand.id == props.devices.brandId)
     const deleteItem = async () => {

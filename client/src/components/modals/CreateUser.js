@@ -1,12 +1,10 @@
 import { observer } from "mobx-react-lite";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Form, Modal, Button, Dropdown } from "react-bootstrap";
 import { registrationAdmin } from "../../http/userAPI";
-import { Context } from "../../index"
 
 const CreateUser = observer(({ show, onHide }) => {
 
-    const user = useContext(Context)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [type, setType] = useState();

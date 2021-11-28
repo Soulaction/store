@@ -1,4 +1,4 @@
-import {$authHost, $host} from "./index";
+import {$authHost} from "./index";
 
 
 export const createOrder = async (userId, basketDeviceId, deviceId, payment) => {

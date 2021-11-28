@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite"
 import { useContext } from "react"
-import { Col, Card, Image, Row } from 'react-bootstrap'
+import { Col, Card, Image } from 'react-bootstrap'
 import { useHistory } from "react-router"
 import { Context } from "../index"
 import star from '../image/star.png'

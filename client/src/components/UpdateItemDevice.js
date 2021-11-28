@@ -40,7 +40,7 @@ const UpdateItemDevice = observer((props) => {
                 <ViewStatusOrder show={updateDate} onHide={() => setUpdateDate(false)} /> */}
                 <Button variant={"danger"}
                   onClick={deleteItem}  
-                >Удалить из корзины</Button>
+                >Удалить товар</Button>
             </div>
         </div>
     )

@@ -1,11 +1,10 @@
 import { observer } from "mobx-react-lite";
 import { useContext, useState } from "react";
 import { Form, Modal, Button } from "react-bootstrap";
-import { useHistory, useParams } from "react-router";
+import { useParams } from "react-router";
 import { createOrder } from "../../http/orderApi";
 import { Context } from "../../index"
 import { fetchProduct } from '../../http/basketApi'
-import { BASKET_ROUTE } from '../../utils/consts'
 
 
 const CreateOrder = observer(({ show, onHide, idBasketDevice, idDevice }) => {
@@ -14,7 +13,6 @@ const CreateOrder = observer(({ show, onHide, idBasketDevice, idDevice }) => {
   const [check1, setCheck1] = useState(false)
   const [check2, setCheck2] = useState(false)
   const { user, basket } = useContext(Context)
-  const history = useHistory();
 
   function getCheckedCheckBoxes() {
     let checkboxes = document.getElementsByClassName('checkbox');
