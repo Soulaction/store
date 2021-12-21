@@ -26,7 +26,6 @@ const UpdateInfomationDevice = observer(({ show, onHide }) => {
             <Pages />
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-success" onClick = {onHide}>Добавить</Button>
                 <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
             </Modal.Footer>
         </Modal>

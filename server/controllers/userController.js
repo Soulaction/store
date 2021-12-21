@@ -56,6 +56,17 @@ class UserController {
         res.json({token})
     }
 
+    async deleteUser(req, res)  {
+        const {id} = req.params
+        const user = await User.destroy({where: {id}})
+        return res.json(user)
+    }
+
+    async allUser(req, res)  {
+        const user = await User.findAll()
+        return res.json(user)
+    }
+
 }
 
 module.exports = new UserController()

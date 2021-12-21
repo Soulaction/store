@@ -16,6 +16,7 @@ export const authRoutes = [
         path: BASKET_ROUTE + '/:id',
         Component: Basket
     },
+    
     {
         path: STORE_KEEPER_ROUTE,
         Component: Keeper

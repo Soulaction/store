@@ -48,7 +48,15 @@ const NavBar = observer(() => {
                                 <Button className="ml-2" variant={"outline-light"} onClick={() => logOut()}>Выйти</Button>
                             </Nav>
                             :
+                            
                             <Nav className="ml-auto" style={{ color: "white" }}>
+                                    <button style={{
+                                    background: `url(${basket}) no-repeat center center`,
+                                    width: 40, height: 40, backgroundSize: 'cover',
+                                    border: 0, marginRight: '20px'
+                                }}
+                                    onClick={() => history.push(BASKET_ROUTE + '/' + user.user.id)}>
+                                </button>
                                 <Button className="ml-2" variant={"outline-light"} onClick={() => logOut()}>Выйти</Button>
                             </Nav>
                     :

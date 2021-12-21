@@ -19,7 +19,7 @@ const DeviceItem = observer(({devices}) => {
             localStorage.setItem('brand', brand[0].name);
         }}>
             <Card
-            style={{wight: 150, cursor: 'pointer'}} border={"light"}
+            style={{wight: 150, cursor: 'pointer', margin: '7px'}} border={"light"}
             >
                 <Image wight={150} height={150} src={process.env.REACT_APP_API_URL + devices.img}/>
                 <div className="d-flex justify-content-between aling-items-center opacity-75">
@@ -27,8 +27,8 @@ const DeviceItem = observer(({devices}) => {
                        {brand[0].name}
                     </div>
                     <div className="d-flex align-items-center">
-                        <div className="pe-1">{devices.rating}</div>
-                        <Image width={15} height={15} src={star}></Image>
+                        {/* <div className="pe-1">{devices.rating}</div> */}
+                        {/* <Image width={15} height={15} src={star}></Image> */}
                     </div>
 
                 </div>

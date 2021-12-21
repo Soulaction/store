@@ -17,7 +17,7 @@ const DevicePage = observer(() => {
     }, [])
 
     return (
-        <Container>
+        <Container className="mt-3">
             <Row>
                 <Col md={4}>
                     <Image width={300} height={300} src={process.env.REACT_APP_API_URL + deviceNew.img}></Image>
@@ -47,7 +47,7 @@ const DevicePage = observer(() => {
                     </Card>
                 </Col>
             </Row>
-            <Row>
+            <Row className="mt-3">
                 <h1>Характеристики</h1>
                 {deviceNew.info.map((info, index) =>
                     <Row key={info.id}>

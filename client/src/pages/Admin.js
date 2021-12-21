@@ -18,7 +18,7 @@ const [informationVisible, setInformationVisible] = useState(false)
         <Button variant={"outline-dark"} className="mt-2" onClick={()=> setTypeVisible(true)}>Добавить тип</Button>
         <Button variant={"outline-dark"} className="mt-2" onClick={()=> setBrandVisible(true)}>Добавить бренд</Button>
         <Button variant={"outline-dark"} className="mt-2" onClick={()=> setDeviceVisible(true)}>Добавить устройство</Button>
-        <Button variant={"outline-dark"} className="mt-2" onClick={()=> setInformationVisible(true)}>Изменить информацию об устройствах</Button>
+        <Button variant={"outline-dark"} className="mt-2" onClick={()=> setInformationVisible(true)}>Удалить товар</Button>
         <Button variant={"outline-dark"} className="mt-2" onClick={()=> setUserVisible(true)}>Добавить пользователя</Button>
         
         <CreateType show={typeVisible} onHide={()=> setTypeVisible(false)}/>
