@@ -1,11 +1,12 @@
 import { observer } from "mobx-react-lite"
 import { useContext } from "react"
-import { Col, Card, Image } from 'react-bootstrap'
+import { Col, Card, Image, Container } from 'react-bootstrap'
 import { useHistory } from "react-router"
 import { Context } from "../index"
 import star from '../image/star.png'
 import { DEVICE_ROUTE } from "../utils/consts"
-
+import addInBasket from "../image/addInBasket.png"
+import favorite from "../image/favorite.png"
 
 
 const DeviceItem = observer(({devices}) => {
@@ -33,6 +34,47 @@ const DeviceItem = observer(({devices}) => {
 
                 </div>
                 <div>{devices.name}</div>
+
+                <div style = {{
+                    color: "black", 
+                    fontWeight:"bold"}}
+                >
+                    {"Цена: " + devices.price + " ₽"}</div>
+                
+                <Container>
+                    <button 
+                        style={{
+                                background: `url(${addInBasket}) no-repeat center center`,
+                                width: 30, height: 30, backgroundSize: 'cover',
+                                border: 0, marginRight: '30px'
+                        }}
+
+                            type="button" 
+                            class="btn btn-secondary" 
+                            data-bs-toggle="tooltip" 
+                            data-bs-placement="bottom" 
+                            title="Добавить в корзину"
+                    >
+                    </button>
+                    
+                    <button 
+                        style={{
+                                background: `url(${favorite}) no-repeat center center`,
+                                width: 30, height: 30, backgroundSize: 'cover',
+                                border: 0, marginRight: '30px'
+                        }}
+
+                            type="button" 
+                            class="btn btn-secondary" 
+                            data-bs-toggle="tooltip" 
+                            data-bs-placement="bottom" 
+                            title ="Добавить в избранное"
+                    >
+                    </button>
+                </Container>
+
+                    
+
             </Card>
         </Col>
     )
