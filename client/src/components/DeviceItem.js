@@ -35,18 +35,18 @@ const DeviceItem = observer(({devices}) => {
                 </div>
                 <div>{devices.name}</div>
 
-                <div style = {{
+                <p style = {{
                     color: "black", 
                     fontWeight:"bold"}}
                 >
-                    {"Цена: " + devices.price + " ₽"}</div>
+                    {"Цена: " + devices.price + " ₽"}</p>
                 
                 <Container>
                     <button 
                         style={{
                                 background: `url(${addInBasket}) no-repeat center center`,
                                 width: 30, height: 30, backgroundSize: 'cover',
-                                border: 0, marginRight: '30px'
+                                border: 0, marginRight: '30px', backgroundColor: "transparent"
                         }}
 
                             type="button" 
@@ -61,9 +61,9 @@ const DeviceItem = observer(({devices}) => {
                         style={{
                                 background: `url(${favorite}) no-repeat center center`,
                                 width: 30, height: 30, backgroundSize: 'cover',
-                                border: 0, marginRight: '30px'
+                                border: 0, marginRight: '30px', backgroundColor: "transparent"
                         }}
-
+                            
                             type="button" 
                             class="btn btn-secondary" 
                             data-bs-toggle="tooltip" 
