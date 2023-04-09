@@ -2,11 +2,12 @@ import { observer } from "mobx-react-lite"
 import { useContext } from "react"
 import { Col, Card, Image, Container } from 'react-bootstrap'
 import { useHistory } from "react-router"
-import { Context } from "../index"
-import star from '../image/star.png'
-import { DEVICE_ROUTE } from "../utils/consts"
-import addInBasket from "../image/addInBasket.png"
-import favorite from "../image/favorite.png"
+import { Context } from "../../index"
+import star from '../../image/star.png'
+import { DEVICE_ROUTE } from "../../utils/consts"
+import addInBasket from "../../image/addInBasket.png"
+import favorite from "../../image/favorite.png"
+import style from "./DeviceItem.module.css"
 
 
 const DeviceItem = observer(({devices}) => {
@@ -35,10 +36,7 @@ const DeviceItem = observer(({devices}) => {
                 </div>
                 <div>{devices.name}</div>
 
-                <p style = {{
-                    color: "black", 
-                    fontWeight:"bold"}}
-                >
+                <p className={style.device_priceText}>
                     {"Цена: " + devices.price + " ₽"}</p>
                 
                 <Container>
